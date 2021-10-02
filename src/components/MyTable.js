@@ -1,8 +1,19 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { Table } from 'react-bootstrap'
 
 
 function MyTable(props) {
+
+useEffect(() => {
+  
+  console.log("Component Mounted");
+  /// componnent will unmount works ---->
+  return () => {
+    console.log("Component Mytable gets unmounted now")
+  }
+}, [])
+
+
     return (
         <div>
             

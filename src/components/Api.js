@@ -7,6 +7,7 @@ function Api() {
 
 const [state,setState]=useState([]);
 const [newData,setNewData]=useState(false);
+const [show,setShow]=useState(true)
 
    
 
@@ -14,6 +15,23 @@ const [newData,setNewData]=useState(false);
     useEffect(() => {
 
           // returns a promise 
+          /*
+
+          fetch('http://localhost:8080/api/data')
+  .then(response => response.json())
+  .then(data => setState(data));
+  */
+// componentDid mount
+
+
+  /// 
+
+
+  // component did update+component did mount -->
+
+
+
+          
      axios.get("http://localhost:8080/api/data") .then(data=>{
         // console.log(data.data);
          setState(data["data"]);
@@ -25,11 +43,16 @@ const [newData,setNewData]=useState(false);
      }).catch(err=>{
          console.log("Eroro couured",err);
      })
+     
 
    
 
+     
+
       
     }, [newData])
+
+
 
 
     const AddData=()=>{
@@ -64,14 +87,22 @@ const [newData,setNewData]=useState(false);
     }
     
 
+    const hideTable=()=>{
+        setShow(!show);
+
+    }
+
 
     // Externla libraries 
     // axios ---
     return (
         <div>
           
+          {
+              show?   <MyTable data={state}/>:""
+          }
 
-            <MyTable data={state}/>
+         
 
             <button className="btn btn-danger"  onClick={AddData}>
 
@@ -80,6 +111,10 @@ const [newData,setNewData]=useState(false);
             </button>
 
             
+            <button onClick={hideTable} className="btn btn-success">
+
+                Hide Table
+            </button>
         </div>
     )
 }
