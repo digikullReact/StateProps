@@ -9,11 +9,12 @@ function MyTable(props) {
             <Table striped bordered hover>
   <thead>
     <tr>
-    
+      <th>Image</th>
       <th>Name</th>
       <th>Age </th>
       <th>Phone</th>
       <th>Email</th>
+    
 
     </tr>
   </thead>
@@ -21,6 +22,7 @@ function MyTable(props) {
       {
           props.data.map(ele=>(
             <tr>
+              <td> <img src={ele.picture}/> </td>
             <td>{ele.name}</td>
             <td>{ele.age}</td>
             <td>{ele.phone}</td>
