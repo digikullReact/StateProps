@@ -3,6 +3,7 @@ import { Col,Row ,Form,Container,Button} from 'react-bootstrap';
 
 
 function Banner(props) {
+ /// console.log("I am rendered Banner")
     const [state,setState]=useState("");
 
 const handleChange=(event)=>{
@@ -11,16 +12,21 @@ const handleChange=(event)=>{
 
 
 const addLink=()=>{
+  //console.log("Link Added");
     props.AddHeaderLinks(state)
 
 
 }
 
     return (
+
+      
+      
         <Container>
         <Row style={{marginTop:"50px"}}>
           <Col>
           <h3>Add Header Componenet</h3>
+          
 
           <Form>
   <Form.Group className="mb-3" controlId="formBasicEmail">
